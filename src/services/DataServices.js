@@ -1,6 +1,6 @@
 const fetchPokemon = async (p) => {
     const promise = await fetch('https://pokeapi.co/api/v2/pokemon/'+p);
-    const data : h = await promise.json();
+    const data = await promise.json();
     return data;
 }
 
@@ -38,11 +38,6 @@ const removeFav = (p) => {
         console.log(favArray);
         localStorage.setItem("favList", JSON.stringify(favArray));
     }
-}
-
-type h = {
-    pokemon: object;
-    sprites: object;
 }
 
 export { fetchData, fetchPokemon, addFav, removeFav };

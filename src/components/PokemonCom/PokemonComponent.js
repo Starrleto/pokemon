@@ -1,4 +1,4 @@
-import { fetchData , addFav } from '../../services/DataServices.tsx';
+import { fetchData , addFav } from '../../services/DataServices.js';
 import React, { useEffect, useState } from 'react'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
