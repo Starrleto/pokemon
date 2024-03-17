@@ -5,3 +5,8 @@
 .small-img-size{
     width: 200px;
 }
+
+.info-section{
+    background-color: white;
+    border-radius: 30px;
+}

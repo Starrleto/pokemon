@@ -1,19 +1,19 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from 'react';
-import {fetchPokemon} from './services/DataServices';
+import {fetchPokemon} from './services/DataServices.tsx';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Nav from 'react-bootstrap/Nav';
 import logo from './assets/image 4.png';
-import HeaderComponent from './components/HeaderComponent';
+import HeaderComponent from './components/Header/HeaderComponent.js';
 import PokemonComponent from './components/PokemonCom/PokemonComponent';
 
 function App() {
 
-  const [pokemon, setPokemon] = useState({});
-  const [input, setInput] = useState('');
+  const [pokemon, setPokemon] = useState(undefined);
+  const [input, setInput] = useState("ditto");
 
   const getPokemon = async () => {
     const p = await fetchPokemon(input);
@@ -26,6 +26,15 @@ function App() {
     getPokemon();
   }
 
+  const rand = () => {
+    setInput(Math.floor(Math.random() * 1025));
+    getPokemon();
+  }
+
+  useEffect(() => {
+    getPokemon();
+  }, [])
+
   return (
     <div className='bg'>
 
@@ -35,6 +44,9 @@ function App() {
         </Nav.Item>
         <Nav.Item>
           <InputGroup className="mb-3">
+            <Button variant="dark" id="button-addon1" onClick={rand}>
+              Random
+            </Button>
             <Button variant="primary" id="button-addon1" onClick={getInput}>
               Search
             </Button>
@@ -48,7 +60,13 @@ function App() {
       </Nav>
 
       <HeaderComponent/>
-      <PokemonComponent pokeName={pokemon.name} pokeShiny={pokemon.sprites.front_shiny} pokeImg={pokemon.sprites.other["official-artwork"].front_default}></PokemonComponent>
+
+      {  
+
+      pokemon !== undefined ? <PokemonComponent pokeName={pokemon.name} pokeShiny={pokemon.sprites.front_shiny} pokeImg={pokemon.sprites.other["official-artwork"].front_default} types={pokemon.types} location={pokemon.location_area_encounters} abilities={pokemon.abilities} moves={pokemon.moves}></PokemonComponent> : <></> 
+      
+      }
+
     </div>
   );
 }
