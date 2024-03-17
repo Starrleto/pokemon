@@ -3,3 +3,13 @@
     text-align: center;
     color: #2E6EB6;
 }
+
+.yeah{
+    font-family: jockey;
+    font-size: 100px;
+}
+
+@font-face {
+    font-family: jockey;
+    src: url("../../assets/JockeyOne-Regular.ttf");
+}

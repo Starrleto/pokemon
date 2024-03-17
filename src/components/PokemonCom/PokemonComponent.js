@@ -69,10 +69,10 @@ const PokemonComponent = (props) => {
       
       <Container>
         <Row>
-          <Col lg={6} md={12}>
+          <Col lg={6} md={12} className='center'>
           <div className='flex'>
-            <h1>{props.pokeName}</h1>
-            <Button variant="light" onClick={makeFav}>♡</Button>
+            <h1 className='namething'>{props.pokeName}</h1>
+            <Button variant="light" className='button' onClick={makeFav}>♡</Button>
           </div>
             <img alt="Shiny Pokemon img" src={props.pokeShiny} className='small-img-size img-fluid'></img>
             <img alt="Default Pokemon img" src={props.pokeImg} className='img-fluid'></img>

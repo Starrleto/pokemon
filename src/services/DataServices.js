@@ -40,4 +40,8 @@ const removeFav = (p) => {
     }
 }
 
+const symbol = (p) => {
+    
+}
+
 export { fetchData, fetchPokemon, addFav, removeFav };
